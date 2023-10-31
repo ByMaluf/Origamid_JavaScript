@@ -71,7 +71,6 @@ PRECO = 25;
 // Retorna um erro
 
 //EXERCÍCIOS
-
 // Declarar uma variável com o seu nome
 
 const Name = 'Brenno'
