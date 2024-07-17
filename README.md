@@ -1,22 +1,22 @@
 ## Extenções Origamid Utilizadas.
 
-![alt text](image.png)
+![alt text](/IMG_DOCUMENTACAO/image.png)
 
 ---
 
-![alt text](image-1.png)
+![alt text](/IMG_DOCUMENTACAO/image-1.png)
 
 ---
 
-![alt text](image-2.png)
+![alt text](/IMG_DOCUMENTACAO/image-2.png)
 
 ---
 
-![alt text](image-3.png)
+![alt text](/IMG_DOCUMENTACAO/image-3.png)
 
 ---
 
-![alt text](image-4.png)
+![alt text](/IMG_DOCUMENTACAO/image-4.png)
 
 # Anotações JavaScript
 
