@@ -20,6 +20,10 @@ ul {
   list-style: none;
 }
 
+html.textoMaior {
+  font-size: 150%;
+}
+ 
 body {
   background: #faf6ed;
   color: #222;
