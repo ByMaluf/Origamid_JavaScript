@@ -23,7 +23,7 @@ ul {
 html.textoMaior {
   font-size: 150%;
 }
- 
+
 body {
   background: #faf6ed;
   color: #222;
@@ -128,6 +128,11 @@ body {
 
 .animais-descricao section {
   margin-bottom: 3rem;
+  display: none;
+}
+
+section.ativo {
+  display: block;
 }
 
 .faq-lista {
