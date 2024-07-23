@@ -108,6 +108,10 @@ body {
   grid-column: 2;
 }
 
+.animais-lista li {
+  cursor: pointer;
+}
+
 .animais-lista::-webkit-scrollbar {
   width: 18px;
 }
@@ -128,11 +132,6 @@ body {
 
 .animais-descricao section {
   margin-bottom: 3rem;
-  display: none;
-}
-
-section.ativo {
-  display: block;
 }
 
 .faq-lista {
@@ -225,5 +224,27 @@ section.ativo {
   }
   .copy {
     margin-bottom: 0px;
+  }
+}
+
+/* Animação e Estilização animais-lista */
+
+.js .js-tabcontent section {
+  display: none;
+}
+
+.js-tabcontent section.ativo {
+  display: block;
+  animation: show 0.5s forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0px, 0, 0);
   }
 }
