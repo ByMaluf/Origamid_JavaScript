@@ -1,21 +1,60 @@
-const tabMenu = document.querySelectorAll('.js-tabmenu li');
-const tabContent = document.querySelectorAll('.js-tabcontent section');
+function initTabNav() {
+  const tabMenu = document.querySelectorAll('.js-tabmenu li');
+  const tabContent = document.querySelectorAll('.js-tabcontent section');
 
-if (tabContent.length && tabMenu.length) {
-  tabContent[0].classList.add('ativo');
+  if (tabContent.length && tabMenu.length) {
+    tabContent[0].classList.add('ativo');
 
-  function activeTab(index) {
-    tabContent.forEach((section) => section.classList.remove('ativo'));
-    tabContent[index].classList.add('ativo')
+    function activeTab(index) {
+      tabContent.forEach((section) => section.classList.remove('ativo'));
+      tabContent[index].classList.add('ativo')
+    }
+
+    function activeTabMenu() {
+      const index = Array.from(tabMenu).indexOf(this);
+      activeTab(index);
+    }
+
+    tabMenu.forEach((li) => {
+      li.addEventListener('click', activeTabMenu);
+    })
   }
+}
+initTabNav();
 
-  function activeTabMenu() {
-    const index = Array.from(tabMenu).indexOf(this);
-    activeTab(index);
+function initAccordion() {
+  const accordionList = document.querySelectorAll('.js-accordion dt')
+  const activeClass = 'ativo'
+  if (accordionList.length) {
+    accordionList[0].classList.add(activeClass);
+    accordionList[0].nextElementSibling.classList.add(activeClass);
+    function activeAccordion(event) {
+      this.classList.toggle(activeClass);
+      this.nextElementSibling.classList.toggle(activeClass);
+    }
+
+    accordionList.forEach((pergunta) => {
+      pergunta.addEventListener('click', activeAccordion);
+    });
   }
+}
+initAccordion();
 
-  tabMenu.forEach((li) => {
-    li.addEventListener('click', activeTabMenu);
+function initScrollSuave() {
+  const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
+
+  function scrollToSection(event) {
+    event.preventDefault();
+    const href = this.getAttribute('href');
+    const section = document.querySelector(href);
+
+    section.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }
+  linksInternos.forEach((link) => {
+    link.addEventListener('click', scrollToSection);
   })
 }
-
+initScrollSuave();
