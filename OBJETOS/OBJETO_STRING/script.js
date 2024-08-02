@@ -64,7 +64,9 @@ console.log(html.split('span').join('a'))
 
 // Retorne o último caracter da frase
 const frase = 'Melhor do ano!';
+console.log(frase[frase.length - 1]);
 console.log(frase.charAt(frase.length - 1));
+console.log(frase.slice(-1));
 
 // Retorne o total de taxas
 const transacoes2 = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado', 'depósito Bancário', 'TARIFA especial'];
@@ -73,7 +75,6 @@ let totalTaxas = 0;
 transacoes2.forEach((taxa) => {
   const string = taxa.toLocaleLowerCase().includes('taxa');
   if (string) {
-    console.log(string.length);
     totalTaxas++
   }
 })
