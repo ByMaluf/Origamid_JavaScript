@@ -158,7 +158,7 @@ const cloneLinguagens = linguagens3.slice();
 
 //EXERCÍCIOS --
 
-/*
+
 const comidas = ['Pizza', 'Frango', 'Carne', 'Macarrão'];
 console.log(comidas);
 // Remova o primeiro valor de comidas e coloque em uma variável.
@@ -191,7 +191,6 @@ if (estudantes.includes('Joana')) {
 if (estudantes.includes('Juliana'))
   console.log('Juliana faz parte dos estudantes.');
 console.log('Juliana não faz parte dos estudantes.');
-*/
 
 //
 // Substitua section por ul e div com li,
