@@ -10,47 +10,77 @@
 // Crie um cronometro utilizando o setInterval. Deve ser possível
 // iniciar, pausar e resetar (duplo clique no pausar).
 
-const startPause = document.querySelector('[data-start]');
+// const startPause = document.querySelector('[data-start]');
+// const reset = document.querySelector('[data-reset]');
+// const temporizador = document.querySelector('[data-timer]');
+
+// let valor = 0.0;
+// let timer;
+// let isRunning = false;
+
+// ['click', 'dblclick'].forEach((event) => {
+//   startPause.addEventListener(event, stopwatch);
+//   reset.addEventListener(event, resetTimer);
+// });
+
+// function stopwatch(e) {
+//   if (e.type === 'dblclick') {
+//     if (timer) {
+//       clearInterval(timer);
+//       timer = null;
+//       startPause.textContent = 'Play'
+//       isRunning = false;
+//     }
+//   }
+
+//   if (e.type === 'click') {
+//     if (!isRunning) {
+//       timer = setInterval(() => {
+//         temporizador.innerText = valor++;
+//       });
+//       startPause.textContent = 'Pause'
+//       isRunning = true;
+//     }
+//   }
+// }
+
+// function resetTimer(e) {
+//   clearInterval(timer);
+//   timer = null;
+//   valor = 0.0;
+//   temporizador.innerText = valor;
+//   isRunning = false;
+// }
+
+const start = document.querySelector('[data-start]');
+const pause = document.querySelector('[data-pause]');
 const reset = document.querySelector('[data-reset]');
-const temporizador = document.querySelector('[data-timer]');
+const timer = document.querySelector('[data-timer]');
 
-let valor = 0.0;
-let timer; // Variável para armazenar o intervalo
-let isRunning = false; // Para controlar se o timer está rodando
+let clock;
+let value;
 
-const events = ['click', 'dblclick'];
+start.addEventListener('click', startTime);
+pause.addEventListener('dblclick', pauseTime);
+reset.addEventListener('click', resetTime);
 
-events.forEach((event) => {
-  startPause.addEventListener(event, stopwatch);
-  reset.addEventListener(event, resetTimer);
-});
-
-function stopwatch(e) {
-  if (e.type === 'dblclick') {
-    if (timer) {
-      clearInterval(timer);
-      timer = null;
-      startPause.textContent = 'Play'
-      isRunning = false; // Atualiza o estado
-    }
-  }
-
-  if (e.type === 'click') {
-    if (!isRunning) {
-      // Inicia ou continua o timer
-      timer = setInterval(() => {
-        temporizador.innerText = valor++;
-      }); // Incrementa a cada segundo
-      startPause.textContent = 'Pause'
-      isRunning = true; // Atualiza o estado
-    }
-  }
+function startTime() {
+  value = +timer.textContent
+  clock = setInterval(() => {
+    timer.textContent = value++
+  }, 100)
+  start.setAttribute('disabled', '')
 }
 
-function resetTimer(e) {
-  clearInterval(timer); // Para o temporizador, se estiver rodando
-  timer = null;
-  valor = 0.0; // Reseta o valor
-  temporizador.innerText = valor; // Atualiza o display
-  isRunning = false; // Atualiza o estado
+function pauseTime() {
+  clearInterval(clock);
+  start.removeAttribute('disabled')
 }
+
+function resetTime() {
+  clearInterval(clock)
+  value = 0;
+  timer.innerHTML = value
+  start.removeAttribute('disabled')
+}
+
