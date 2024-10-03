@@ -4,14 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulário</title>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Forms</title>
 </head>
 
 <body>
+
   <style>
     label {
       display: block;
-      font-family: Arial;
+      font-family: Arial, Helvetica, sans-serif;
       font-weight: bold;
       margin-bottom: .5rem;
       margin-top: 1rem;
@@ -51,26 +53,14 @@
     <label for="mensagem">Mensagem</label>
     <textarea name="mensagem" id="mensagem"></textarea>
   </form>
-  <span class="texto"></span>
-
   <script>
-    const contato = document.querySelector('#contato')
-    const texto = document.querySelector('.texto')
-
-    function handleKeyUp(event) {
-      const target = event.target;
-
-      if (!target.checkValidity()) {
-        target.classList.add('invalido');
-        target.nexElementSibling.innerText = target.validationMessage;
-      }
-      console.log(event.target.value)
-      console.log(event.target.checkValidity())
-      texto.innerText = target.value;
+    const contato = document.querySelector('#contato');
+    const dados = {};
+    function handleChange(event) {
+      dados[event.target.name] = event.target.value;
+      console.log(dados);
     }
-
-    contato.addEventListener('change', handleKeyUp)
-
+    contato.addEventListener('change', handleChange);
   </script>
 </body>
 
