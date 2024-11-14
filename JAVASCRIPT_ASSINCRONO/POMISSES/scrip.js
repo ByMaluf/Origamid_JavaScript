@@ -26,6 +26,7 @@
 // Por padrão uma Promise aceita uma função anônima e dentro da mesma passa-se dois argumentos, duas funções, uma função de resposta se ela for resolvida e a outra caso seja rejeitada.
 // Instanciando uma Promise
 
+/*
 const promise1 = new Promise((resolve, reject) => {
   const isResolve = false;
   if (isResolve) {
@@ -113,4 +114,31 @@ filmes
   .catch((error) => {
     console.log('Erro capturado:', error);
   });
+*/
 
+
+const url = 'https://v2.jokeapi.dev/joke/Any?lang=pt'
+
+function fetchData(url) {
+  return fetch(url)
+    .then((response) => response.json())
+    .catch((error) => console.log(error))
+}
+
+const data = fetchData(url)
+  .then((data) => [data.delivery, data.setup].reverse())
+  .then((array) => {
+    array.forEach((piada) => {
+      createElementJoke('h2', piada)
+    })
+  })
+
+function createElementJoke(tag, value) {
+  const body = document.body;
+  if (tag) {
+    const joke = document.createElement(tag);
+    joke.textContent = value;
+    body.appendChild(joke);
+    return joke;
+  }
+}
