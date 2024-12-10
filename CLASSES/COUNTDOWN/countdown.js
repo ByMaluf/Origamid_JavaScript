@@ -5,7 +5,7 @@ export default class Countdown {
   }
 
   get _futereDate() {
-    return new Date(this._futereDate);
+    return new Date(this.futereDate);
   }
 
   get _currentDate() {
@@ -16,17 +16,34 @@ export default class Countdown {
     return this._futereDate.getTime() - this._currentDate.getTime();
   }
 
+  get _days() {
+    return Math.floor(this._timeStampDiff / (24 * 60 * 60 * 1000));
+  }
+
   get _hours() {
-    return new Date().getHours();
+    return Math.floor(this._timeStampDiff / (60 * 60 * 1000));
   }
 
   get _minutes() {
-    return new Date().getMinutes();
+    return Math.floor(this._timeStampDiff / (60 * 1000));
   }
 
   get _seconds() {
-    return new Date().getSeconds();
+    return Math.floor(this._timeStampDiff / 1000);
   }
 
+  get total() {
+    const days = this._days;
+    const hours = this._hours % 24;
+    const minutes = this._minutes % 60;
+    const seconds = this._seconds % 60;
+
+    return {
+      days,
+      hours,
+      minutes,
+      seconds,
+    }
+  }
 }
 
