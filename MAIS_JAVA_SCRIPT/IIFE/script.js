@@ -21,3 +21,5 @@ const active = callback => callback();
 active(function () {
   console.log('Teste de Active');
 })
+
+
