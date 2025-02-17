@@ -1,9 +1,10 @@
+import debounce from "./debounce";
 export default class ScrollAnima {
 
   constructor(section) {
     this.sections = document.querySelectorAll(section);
     this.windowMetade = window.innerHeight * 0.6;
-    this.checkDistance = this.checkDistance.bind(this);
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50);
   }
 
   //Pega a distância de cada item em relação
