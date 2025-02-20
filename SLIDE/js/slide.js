@@ -9,25 +9,25 @@ export default class Slide {
     event.preventDefault();
     console.log('clicou')
     this.wrapper.addEventListener('mousemove', this.onMove);
-    this.wrapper.addEventListener('mouseup', this.onUp);
   }
 
   onMove(event) {
     console.log('moveu')
   }
 
-  onUp(event) {
+  onEnd(event) {
     console.log('Soltou')
     this.wrapper.removeEventListener('mousemove', this.onMove);
   }
 
   addSlideEvents() {
     this.wrapper.addEventListener('mousedown', this.onStart);
+    this.wrapper.addEventListener('mouseup', this.onEnd);
   }
 
   bindEvents() {
     this.onStart = this.onStart.bind(this);
-    this.onUp = this.onUp.bind(this);
+    this.onEnd = this.onEnd.bind(this);
   }
 
   init() {
