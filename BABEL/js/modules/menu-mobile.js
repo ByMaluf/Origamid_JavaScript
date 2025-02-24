@@ -10,8 +10,8 @@ export default class MenuMobile {
     this.events = events || ['touchstart', 'click'];
   };
 
-  openMenu() {
-    console.log(this);
+  openMenu(event) {
+    event.preventDefault();
     this.menuList.classList.add(this.activeClass);
     this.menuButton.classList.add(this.activeClass);
     outsideClick(this.menuList, this.events, () => {
